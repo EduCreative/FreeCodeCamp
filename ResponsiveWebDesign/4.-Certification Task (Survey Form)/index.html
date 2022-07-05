@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Survey Form</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">Survey Form</h1>
+    <p id="description">Thank you for taking the time to help us improve the platform</p>
+    <form id="survey-form"> 
+      <fieldset>
+      <label id="name-label">Enter your Name: <input placeholder="Khan" 
+      id="name" required> </label>
+      <label id="email-label">Enter your email:<input  placeholder="Khan@gmail.com" id="email" type="email" required> </label>
+      <label id="number-label">Enter your age:<input  placeholder="40" id="number" type="number" min="10" max="99" required> </label>
+      <label>Which option best describes your current role?</label>
+      <select id="dropdown">
+        <option>Select One option</option>
+        <option>Student</option>
+        <option>Full Time Job</option>
+        <option>Full Time Learner</option>
+        <option>Prefer Not to say</option>
+        <option>Others</option>
+      </select>
+      </fieldset>
+
+      <fieldset>
+      <label>Would you recommend freeCodeCamp to a friend?</label>
+      <label><input type="radio" name="recomend" value="definitely" class="inline">Definitely</lable>
+      <label><input type="radio" name="recomend" value="maybe" class="inline">May be </lable>
+      <label><input type="radio" name="recomend" value="NotSure" class="inline">Not sure</lable>
+      </fieldset>
+      <fieldset>
+      <label>Would you select freeCodeCamp for further learning?</label>
+      <label> <input type="radio" name="learning" value="Definitely"class="inline">Definitely</label>
+      <label><input type="radio" name="learning" value="radio2"class="inline">May be</label>
+      <label> <input type="radio" name="learning" value="NotSure" class="inline">Not sure</lable>
+      </fieldset>
+
+      <fieldset>
+      <label>What would you like to see improved? (Check all that apply)</label>
+      <label  style="word-wrap:break-word">
+      <input id="checkid"  type="checkbox" value="test" />Front End</label>
+      
+      <label  style="word-wrap:break-word"> 
+      <input type="checkbox" name="checkbox" value="Backend" />Back End</label>
+      <label  style="word-wrap:break-word"> 
+      <input type="checkbox" name="checkbox" value="Backend" />Data Visualisation</label>
+      <label  style="word-wrap:break-word"> 
+      <input type="checkbox" name="checkbox" value="Backend" />Challanges</label>
+     
+  </fieldset>
+
+      <label>Enter your comments or suggestions:</label>
+        <textarea name="bio" rows="3" cols="30" placeholder="I would like to..."></textarea>
+        <input id="submit" type="submit" value="Submit" />
+			  </label>
+    </form>
+
+  </body>
+</html>

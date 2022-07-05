@@ -1,0 +1,279 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: darkgray;
+  border-top: 8%;
+  margin-top: 8%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 150%;
+}
+
+section{
+  padding-top: 10%;
+}
+
+header{
+  margin-bottom: 3vh;
+  background-color: rgb(185, 224, 224);
+  color: rgb(102, 4, 89);
+}
+
+#header {
+  background-color: rgb(2, 2, 26);
+  padding-top: 1rem;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top:0;  
+  width: 100%;
+  color: white;
+  background-color: rgb(27, 27, 27); 
+}
+
+.headerimg{
+  width: 3rem;
+  height: 3rem;
+  background-color: rgb(67, 67, 189);
+  padding: 2%;
+}
+
+.navbar h2{
+  margin: 1rem;
+  text-align: left;
+}
+
+.navbar ul{
+  background-color: violet;
+  opacity: 80%;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: .5rem;
+  margin-top: 2rem;
+}
+
+.navbar .navlink{
+  color: white;
+  text-decoration: none;
+}
+
+form {
+  padding-top: 4rem;
+  text-align: center;  
+}
+
+hr{
+  background-color: gray;
+  height: 2px;
+  margin: 1px;
+  }
+
+main h1 {
+  text-align: center;
+  
+}
+
+#how_it_works {
+  text-align: center;
+}
+
+#how_it_works p{
+  text-align: center;
+}
+
+#video {
+  margin: 1rem;
+  width: 50vw;
+  height: 60vh;
+}
+
+#email {
+  width: 40vw;
+  height: 8%;
+  padding: 1%;
+  margin:1%;
+  font-size: 80%;
+}
+
+#submit {
+  border-color: navajowhite;
+  border-radius: 10%;
+  background-color: orange;
+  padding: 1%;
+  margin: 1%;
+  font-size: 80%;
+}
+
+p {
+  margin: 1rem;
+  text-align: left;
+}
+
+.container {
+  width: 80vw;
+  height: 80vh;
+  background-color: silver;
+  margin-left: 10%;
+  text-align: center;
+}
+
+#features .container {
+  width: 80vw;
+  height: 70vh;
+  background-color: silver;
+  margin-left: 10%;
+  text-align: center;
+}
+
+#price1, #price2, #price3{
+  float: left;
+  border: solid black;
+  background-color: silver;
+  width: 25%;
+  height: 65vh;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+#price1 h2{
+  padding: 5%;
+  font-size: 2.5vw;
+  background-color: gray;
+}
+
+#price1 h1{
+  padding: 10%;
+  font-size: 5vh;
+}
+
+#price1 p{
+  padding: 3% 1%;
+  text-align: center;
+  line-height: 1;
+  font-size: 3.5vh;
+}
+
+#price1 #selectit{
+  padding: 5% 10%;
+  border-radius: 10%;
+  border: none;
+  background-color: orange;
+  font-size: 2.5vh;
+}
+
+#footer, #footer p{
+  background-color: silver;
+  text-align: right;
+}
+
+#footer {
+  padding-top: 5%;
+}
+
+#footer li{
+  display: inline;
+  margin: 1%;
+  color: black;
+  font-size: x-large;
+}
+#footer p{
+  font-size: large;
+  padding-bottom: 2%;
+}
+
+@media only screen and (max-width: 800px){
+    #price1{
+      border: solid black;
+      background-color: blue;
+      width: 80%;
+      height: 65%;
+      margin-left: 5%;
+      margin-top: 5%;
+    }
+    #price1 h1{
+      padding: 5% 0%;
+      font-size: 5vh;
+    }
+    #price1 h2{
+      padding: 5% 0%;
+      font-size: 5vh;
+    }
+    #footer {
+      padding-top: 100%;
+      text-align: center;
+    }
+    #footer p{
+      text-align: center;
+    }
+    
+    body {
+      padding-top: 30vh;
+      background-color: silver;
+    }
+
+    .headerimg{
+      padding: 0%;
+      margin: 0%;
+      display: inline-block;
+    }
+
+    #header{
+      padding: 0%;
+      margin: 0%;
+    }
+    #video{
+      width: 80vw;
+    }
+    .navbar{
+      justify-content: space-between;
+      position:fixed;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      top:0;  
+      width: 100%;
+      background-color: green; 
+      line-height: 1.4rem;
+    }
+
+    .navbar ul {
+      background-color: yellowgreen;
+      width: 100%;      
+    }
+
+    .navbar li {
+      display:grid;
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      
+      margin: 0.2rem;
+      border-bottom: solid .1rem gray ; 
+      color: black;
+
+    }
+    section{
+      padding-top: 42%;
+    }
+    #features section{
+      padding: 0;
+      padding-top: 10%;
+    }
+
+    form{
+      padding: 0;
+      padding-top: 10%;
+      margin: 0%;
+    }
+    
+    hr{
+      border: 0ch;
+      height: 0%;      
+      }
+}

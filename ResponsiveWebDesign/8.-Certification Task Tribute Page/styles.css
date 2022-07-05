@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+#image {
+  display: block;
+  max-width:100%;
+  height: auto;
+  margin:auto;
+  background-size: contain;
+  
+}
+
+main{
+  text-align:center;
+  font-family: Tahoma;
+  color:#36454F;
+  margin: 30px 8px;
+  padding: 15px;
+  border-radius: 5px;
+  background: #eee;
+}
+
+#tribute-head{
+  padding-top: 40px;
+  font-weight: 200px;
+  font-size: 25px;
+  text-align: center;
+}
+#img-caption {
+  background-color:white;
+  padding-bottom:10px;
+}
+
+h1 {
+  font-weight: 400px;
+  font-size: 40px;
+}
+
+
+.bold {
+  font-weight: 800;
+}
+
+ul{
+  width: 500px;
+  margin: 20px auto;
+  padding: 0 7px;
+  text-align: left;
+}
+
+li{
+    margin-bottom: 2em;
+}

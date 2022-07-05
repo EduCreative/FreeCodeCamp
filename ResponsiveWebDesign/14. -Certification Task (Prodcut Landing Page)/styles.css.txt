@@ -1,0 +1,111 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+@media all and (max-width: 400px) {
+.container {
+  display: flex;
+  flex: 1;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+}}
+
+html {
+  background-color: 	#C0C0C0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: arial;
+}
+
+#header { 
+  position: sticky; 
+  top: 0;
+  display: flex;
+  background-color: #6B8E23;
+  height: 100px;
+}
+
+#header-img {
+  height: 3rem;
+  width: 20rem;
+}
+
+header {
+  font-size: 1.2rem;
+}
+
+p{
+  font-size:1rem;
+}
+nav {
+  color: white;
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+#nav-bar {}
+  position: fixed;
+}
+
+.nav-link {
+  text-decoration: none;
+  margin: 0;
+}
+
+ul {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+ul *{
+  display: block;
+  list-style: none;
+  text-decoration: none;
+  display: inline;
+  margin:0 10px;
+}
+
+li a{
+  color:black;
+}
+
+#form {
+  margin: 0 auto;
+  width: 80%;
+  text-align:center;
+}
+
+div {
+  width: 100%;
+  margin: 0.5rem auto;
+}
+
+h2 {
+  position:relative;
+}
+
+#video {
+  display: block;
+  text-align: center;
+}
+
+#email {
+    font-size: 1.2rem;
+    border: .2rem solid black;
+}
+
+#submit {
+    background-color: orange;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem 0.5rem;
+    border:none;
+}
+
