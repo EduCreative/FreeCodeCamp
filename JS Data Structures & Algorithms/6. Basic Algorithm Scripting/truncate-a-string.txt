@@ -1,0 +1,32 @@
+function truncateString(str, num) {
+
+  let myString = "";
+
+  if(str.length <= num){
+
+    for(let i=0; i < str.length; i++){
+
+      myString += str[i];
+
+      }
+
+    } else {
+
+      for(let i=0; i < num; i++){
+
+      myString += str[i];
+
+      }
+
+      myString +="..."
+
+    }
+
+  
+  //return str.length > num ? str.slice(0, num) + "..." : str;
+  return myString;
+
+}
+
+
+truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2)

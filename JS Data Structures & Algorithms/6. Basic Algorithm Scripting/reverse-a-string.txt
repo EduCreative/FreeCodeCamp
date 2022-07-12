@@ -1,0 +1,16 @@
+function reverseString(str) {
+
+  let myStr = [];
+
+  for(let j=str.length-1; j>-1; j--){
+
+    myStr+= str[j];
+
+  }
+
+  return myStr;
+
+}
+
+
+console.log(reverseString("hello"));

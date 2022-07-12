@@ -1,0 +1,21 @@
+function getIndexToIns(arr, num) {
+
+  let myArray = arr.sort((a,b) => (a-b));
+
+  
+  
+  for (let i=0; i < myArray.length; i++) {
+
+    if(myArray[i] >= num) {
+      
+	console.log (i);
+      return i;
+    
+}
+  
+}
+  
+return myArray.length;
+}
+
+getIndexToIns([5, 3, 20, 3], 5);
