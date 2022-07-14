@@ -1,0 +1,20 @@
+*Functional Programming*
+it's all about non-mutating functions
+
+more functions,
+map,
+forEach,
+filter,
+more practice of slice, splice, and made own functions,
+concat,
+reduce,
+Number, parseInteger/float,
+sort,
+split,
+join,
+trim,
+every,
+some
+
+
+console.log in the end

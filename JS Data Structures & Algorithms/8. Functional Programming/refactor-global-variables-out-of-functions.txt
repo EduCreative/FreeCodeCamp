@@ -1,0 +1,32 @@
+// The global variable
+const bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
+
+// Change code below this line
+function add(array, bookName) {
+  let myArray = [];
+  myArray = array.slice();
+  myArray.push(bookName);
+  return myArray;
+  
+  // Change code above this line
+}
+
+// Change code below this line
+function remove(array, bookName) {
+  let myArray = [];
+  myArray = array.slice();
+  const book_index = myArray.indexOf(bookName);
+  if (book_index >= 0) {
+
+    myArray.splice(book_index, 1);
+    return myArray;
+
+    // Change code above this line
+    }
+}
+
+console.log(bookList);
+remove(bookList, 'The Hound of the Baskervilles');
+console.log(bookList);
+add(bookList, 'The Hound of the Baskervilles');
+console.log(bookList);
