@@ -1,0 +1,43 @@
+function sumPrimes(num) {
+
+  let primeFlag = true;
+
+  let sumPrime=0;
+
+  for(let i=1; i<=num; i++){
+
+    for(let j=2; j<i; j++){
+
+      if(i%j == 0){
+
+        primeFlag = false;
+
+        break;
+
+      }
+
+    primeFlag = true;
+
+    }
+
+    if(primeFlag === true && i > 1){
+
+      //console.log(i);
+
+      sumPrime += i;
+
+      primeFlag = false;
+
+    }
+
+
+  }
+
+  console.log(sumPrime);
+
+  return sumPrime;
+
+}
+
+
+sumPrimes(10);

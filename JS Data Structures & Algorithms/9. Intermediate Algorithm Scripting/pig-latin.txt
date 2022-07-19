@@ -1,0 +1,19 @@
+function translatePigLatin(str) {
+  let ifConstant = str.match(/^[^aeiou]+/);
+  //console.log(ifConstant);
+
+  if(ifConstant === null){
+    console.log(str+"way");
+    return str+"way";    
+  } else {
+    console.log(str.slice(ifConstant[0].length) + ifConstant +"ay");
+    return str.slice(ifConstant[0].length) + ifConstant +"ay";
+    
+  }
+  //return str;
+}
+
+translatePigLatin("consonant");
+translatePigLatin("algorithm");
+translatePigLatin("glove");
+translatePigLatin("schwartz");

@@ -1,0 +1,20 @@
+function sumFibs(num) {
+  let currentDigit = 1;
+  let previousDigit = 0;
+  let beforePreviousDigit = 0;
+  let oddSum = 0;
+  while (currentDigit <= num){
+    if(currentDigit % 2){
+      oddSum += currentDigit;
+    }
+    //console.log(currentDigit);
+    //console.log(oddSum);
+    previousDigit = currentDigit;
+    currentDigit = previousDigit + beforePreviousDigit;
+    beforePreviousDigit = previousDigit;
+  }
+  console.log(oddSum);
+  return oddSum;
+}
+
+sumFibs(75025);

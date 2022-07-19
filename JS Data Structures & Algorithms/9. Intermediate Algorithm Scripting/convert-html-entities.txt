@@ -1,0 +1,30 @@
+function convertHTML(str) {
+  let myRegex = /[&|<|>|"|'|]/g;
+  let myString= [];
+  
+  myString = str.replace(myRegex, function(char){
+    switch (char) {
+      case "&":
+        return "&amp;";
+        break;
+      case "<":
+        return "&lt;";
+        break;
+      case ">":
+        return "&gt;";
+        break;
+      case "\"":
+        return "&quot;";
+        break;
+      case "\'":
+        return "&apos;";
+        break;
+    }
+  });
+
+  //console.log(myString);
+  return myString;
+}
+
+convertHTML("Dolce & Gabbana");
+convertHTML('Stuff in "quotation marks"');

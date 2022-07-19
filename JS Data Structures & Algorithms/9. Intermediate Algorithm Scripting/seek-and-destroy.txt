@@ -1,0 +1,12 @@
+function destroyer(arr) {
+ const removeItems = Object.values(arguments).slice(1);
+ const newArray = arr.filter(removeItemFunction);
+
+ function removeItemFunction(item){
+    return !removeItems.includes(item);
+  }
+  console.log(newArray);
+  return newArray;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 4, 3);

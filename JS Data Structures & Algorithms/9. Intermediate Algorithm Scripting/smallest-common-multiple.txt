@@ -1,0 +1,19 @@
+function smallestCommons(arr) {
+  let smallNum = Math.min(...arr);
+  let largeNum = Math.max(...arr);
+  let sum=largeNum;
+  
+  for(let i = largeNum; i>=smallNum; i--){
+      //check if sum can be divided by all numbers otherwise add...
+      if(sum % i !== 0){
+        //add largeNum till you get exact sum of all common factors
+        sum += largeNum;
+        //repeat the loop
+        i = largeNum;
+      }
+  }
+  console.log(sum);
+  return sum;
+}
+
+smallestCommons([5, 1]);
