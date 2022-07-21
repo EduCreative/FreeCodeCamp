@@ -1,0 +1,17 @@
+function palindrome(str) {
+  const myRegex = /[^a-zA-Z0-9]/g;
+  const myString = str.toLowerCase().replace(myRegex, "");
+  let len = myString.length-1;
+
+  for(let i=0, j=len; i<len; i++, j--){
+    if(myString[i] !== myString[j]){
+      return false;
+      //console.log("Start: "+ i + ":"+ myString[i]);
+      //console.log("End : " + j + ":"+ myString[j]);
+    }
+  }
+  return true;
+}
+
+//palindrome("eye");
+console.log(palindrome("never odd or eveen"));

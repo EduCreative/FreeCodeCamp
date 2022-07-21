@@ -1,0 +1,23 @@
+function rot13(str) {
+  let resultString = '';
+
+  for(let item in str){
+    let charCode = str.charCodeAt(item);
+    
+    if(charCode > 63 && charCode <91){
+      if(charCode>=78){
+          resultString += String.fromCharCode(charCode-13);
+      } else {
+          resultString += String.fromCharCode(charCode+13);
+      }
+    } else {
+      resultString += str[item];
+    }
+  }
+  //console.log(resultString);
+  return resultString;
+}
+
+rot13("SERR PBQR PNZC");
+//rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.");
+//rot13("SERR CVMMN!");

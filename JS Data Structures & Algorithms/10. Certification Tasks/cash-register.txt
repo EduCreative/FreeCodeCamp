@@ -1,0 +1,143 @@
+function checkCashRegister(price, cash, cid) {
+  var remainNum=0, num=0;
+  var resultCID = [];
+  var totalCID = 0;
+  var flag = 'OPEN';
+  let returnResult = {
+    "status": "INSUFFICIENT_FUNDS",
+    "change": []
+    }
+
+  let notesDominations = {
+  "PENNY":0.01,
+  "NICKEL": 0.05,
+  "DIME": 0.1,
+  "QUARTER": 0.25,
+  "ONE": 1,
+  "FIVE": 5,
+  "TEN": 10,
+  "TWENTY": 20,
+  "ONE HUNDRED": 100
+  }
+  //console.log(notesDominations.key[20]);
+  //console.log(cid[7][0]);
+  //calculate Total CID
+  for(let amount in cid){totalCID += cid[amount][1];}
+  
+  //calculate Change due
+  let changeDue = cash - price;
+  totalCID = Math.round(totalCID*100)/100;
+  //console.log("Change Due: "+ changeDue);
+  //console.log("Cash Drawer: "+ Math.round(totalCID*100)/100);
+
+  if(changeDue > totalCID) {
+    flag = "INSUFFICIENT_FUNDS";
+    returnResult["status"] = flag;
+    returnResult["change"] = resultCID;
+    //console.log(returnResult);
+    return returnResult;
+  } else if(changeDue === totalCID){
+    //convert change in different dominations
+    flag = "CLOSED";
+    putAmount(100, 8);      putAmount(20, 7);      putAmount(10, 6);
+    putAmount(5, 5);        putAmount(1, 4);       putAmount(0.25, 3);
+    putAmount(0.1, 2);      putAmount(0.05, 1);    putAmount(0.01, 0);
+    
+    //console.log(resultCID);
+    resultCID.reverse();
+    returnResult["status"] = flag;
+    returnResult["change"] = resultCID;
+    console.log(returnResult);
+    return returnResult;
+    } else {
+      flag = "OPEN";
+      putAmount(100, 8);      putAmount(20, 7);      putAmount(10, 6);
+      putAmount(5, 5);        putAmount(1, 4);       putAmount(0.25, 3);
+      putAmount(0.1, 2);      putAmount(0.05, 1);    putAmount(0.01, 0);
+    
+      if(changeDue !== 0){
+        flag = "INSUFFICIENT_FUNDS";
+        resultCID = [];
+      } else {
+        returnResult["status"] = flag;
+        returnResult["change"] = resultCID;
+      }
+      //console.log(returnResult);
+      return returnResult;
+    }
+
+function putAmount(amount, amountIndex) {
+    if(changeDue >= amount && flag !== "CLOSED") {
+      //console.log(changeDue);
+      num = Math.floor(changeDue /amount)*amount;
+          
+    //console.log(cid[amountIndex][0]);
+    //console.log(cid[amountIndex][1]);
+    //console.log(num);
+    if(cid[amountIndex][1] !== 0){ 
+        if(num <= cid[amountIndex][1]){
+          resultCID.push([cid[amountIndex][0], num]);
+          changeDue = Math.round(changeDue % amount*100)/100;
+        } else if(num-amount !==0 && num-amount <= cid[amountIndex][1]){
+          resultCID.push([cid[amountIndex][0], num-amount]);
+          changeDue = Math.round(changeDue % amount*100)/100+amount;
+          //console.log(changeDue);
+        } else if(num-amount*2 !==0 && num-amount*2 <= cid[amountIndex][1]){
+          resultCID.push([cid[amountIndex][0], num-amount*2]);
+          //changeDue = Math.round(changeDue % amount*100)/100+amount*2;
+        } else if(num-amount*3 !==0 && num-amount*3 <= cid[amountIndex][1]){
+          resultCID.push([cid[amountIndex][0], num-amount*3]);
+          changeDue += amount*3;
+        } else if(num-amount*4 !==0 && num-amount*4 <= cid[amountIndex][1]){
+          resultCID.push([cid[amountIndex][0], num-amount*4]);
+          changeDue += amount*4;
+        } 
+      }
+    }else if(flag === "CLOSED"){
+        resultCID.push([cid[amountIndex][0], cid[amountIndex][1]]);
+        //console.log(changeDue);
+    }
+  };
+
+  }
+
+//checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
+//  should return {status: "OPEN", change: [["QUARTER", 0.5]]}
+
+//checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
+//   {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}
+
+//checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]);
+//    should return {status: "INSUFFICIENT_FUNDS", change: []}
+
+//checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]);
+//   should return {status: "INSUFFICIENT_FUNDS", change: []}
+
+checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]);
+//   should return {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}.
+
+//checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]) 
+//should return {status: "INSUFFICIENT_FUNDS", change: []}
+
+/*if(changeDue >= 20) {
+    num = Math.floor(changeDue /20)*20;
+    changeDue = Math.round(changeDue % 20*100)/100;
+    if(num <= cid[7][1]){
+      resultCID.push(["Twenty", num]);
+    } else if(num-20 !==0 && num-20 <= cid[7][1]){
+      resultCID.push(["Twenty", num-20]);
+      changeDue += 20;
+    } else if(num-20*2 !==0 && num-20*2 <= cid[7][1]){
+      resultCID.push(["Twenty", num-20*2]);
+      changeDue += 20*2;
+    } else if(num-20*3 !==0 && num-20*3 <= cid[7][1]){
+      resultCID.push(["Twenty", num-20*3]);
+      changeDue += 20*3;
+    } else if(num-20*4 !==0 && num-20*4 <= cid[7][1]){
+      resultCID.push(["Twenty", num-20*4]);
+      changeDue += 20*4;
+    }
+
+    //console.log(changeDue);
+    //console.log(resultCID);
+  }*/

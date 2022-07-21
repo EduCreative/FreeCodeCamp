@@ -1,0 +1,106 @@
+function convertToRoman(num) {
+  const romanNumerals = {
+    1000 : "M",
+    900 : "CM",
+    500 : "D",
+    400 : "CD",
+    100 : "C",
+    90 : "XC",
+    50 : "L",
+    40 : "XL",
+    10 : "X",
+    9 : "IX",
+    5 : "V",
+    4 : "IV",
+    1 : "I",
+  };
+
+  let valToConvert = 0;
+  let valRemain = num;
+  let result = "";
+
+  if (valRemain >= 1000) {
+    valToConvert = Math.floor(valRemain / 1000);
+    valRemain = Math.floor(valRemain % 1000);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[1000];}
+    //console.log(valToConvert);
+    //console.log(valRemain);
+    //console.log(result);
+  }
+
+  if (valRemain >= 900) {
+    valToConvert = Math.floor(valRemain / 900);
+    valRemain = Math.floor(valRemain % 900);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[900];}
+  }
+
+  if (valRemain >= 500) {
+    valToConvert = Math.floor(valRemain / 500);
+    valRemain = Math.floor(valRemain % 500);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[500];}
+  }
+
+  if (valRemain >= 400) {
+    valToConvert = Math.floor(valRemain / 400);
+    valRemain = Math.floor(valRemain % 400);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[400];}
+  }
+
+  if (valRemain >= 100) {
+    valToConvert = Math.floor(valRemain / 100);
+    valRemain = Math.floor(valRemain % 100);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[100];}
+  }
+
+  if (valRemain >= 90) {
+    valToConvert = Math.floor(valRemain / 90);
+    valRemain = Math.floor(valRemain % 90);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[90];}
+  }
+  if (valRemain >= 50) {
+    valToConvert = Math.floor(valRemain / 50);
+    valRemain = Math.floor(valRemain % 50);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[50];}
+  }
+  if (valRemain >= 40) {
+    valToConvert = Math.floor(valRemain / 40);
+    valRemain = Math.floor(valRemain % 40);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[40];}
+  }
+
+  if (valRemain >= 10) {
+    valToConvert = Math.floor(valRemain / 10);
+    valRemain = Math.floor(valRemain % 10);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[10];}
+  }
+    
+  if (valRemain === 9) {
+    valToConvert = Math.floor(valRemain / 9);
+    valRemain = Math.floor(valRemain % 9);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[9];}
+  }
+
+  if (valRemain >= 5) {
+    valToConvert = Math.floor(valRemain / 5);
+    valRemain = Math.floor(valRemain % 5);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[5];}
+  }
+
+  if (valRemain === 4) {
+    valToConvert = Math.floor(valRemain / 4);
+    valRemain = Math.floor(valRemain % 4);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[4];}
+  }
+
+  if (valRemain >= 1) {
+    valToConvert = Math.floor(valRemain / 1);
+    valRemain = Math.floor(valRemain % 1);
+    for(let i=1; i<=valToConvert; i++){result += romanNumerals[1];}
+  }
+
+  console.log(result);
+  
+  return result;
+}
+
+convertToRoman(2);

@@ -1,17 +1,32 @@
 function fearNotLetter(str) {
+
   let result = undefined;
+
   for(let i = 0; i< str.length-1; i++){
+
     let charCode = str.charCodeAt(i);
+
     let nextCharCode = str.charCodeAt(i+1);
+
     if(charCode+1 !== nextCharCode){
+
       //console.log(charCode);
+
       //console.log(nextCharCode);
+
       return String.fromCharCode(charCode+1);
+
     }
+
   }
-  //console.log(String.fromCharCode(result));  
-  //console.log(result);
+
+  //console.log(String.fromCharCode(result));
+  
+//console.log(result);
+
   return result;
+
 }
+
 
 fearNotLetter("abce");

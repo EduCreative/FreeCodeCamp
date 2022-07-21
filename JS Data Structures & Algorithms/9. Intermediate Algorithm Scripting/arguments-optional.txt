@@ -1,0 +1,20 @@
+function addTogether() {
+  let [first, second] = arguments;
+  //console.log(second);
+  if(typeof(first) !== 'number'){
+    return undefined;
+  }
+  if(typeof(second) === 'undefined'){
+    return (second) => addTogether(first, second);
+    }
+  if(typeof(second) !== 'number'){
+         return undefined;
+      }
+  //console.log(first+second);
+  return first+second;
+}
+
+addTogether(2, 3);
+addTogether(5)(7);
+//addTogether("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+addTogether(2, "3");
