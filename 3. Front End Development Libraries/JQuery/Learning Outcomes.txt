@@ -1,0 +1,44 @@
+Front End Development Librarires
+
+**JQuery**
+how to use jQuery to select, remove, clone, and modify different elements on the page.
+
+*target elements by class/id using jquery
+*different operations on html tags
+*function chaining
+*target the parent
+*target the children
+*Target a Specific Child
+*target even/odd elements
+*modify the entire page
+
+change html
+<script>
+  $(document).ready(function() {
+
+    $("button").addClass("animated bounce");
+
+  });
+</script>
+
+$("#target1").css("color", "red");
+
+$("#target1").prop("disabled", true);
+
+$("button").removeClass("btn-default");
+
+
+$("#target1").prop("disabled", true);
+
+$("#target4").html("<em>#target4<em>");
+
+$("#target4").text
+$("#target4").remove;
+$("#target4").appendTo("#left-well");
+$("#target2").clone().appendTo("#right-well");
+$("#target1").parent().css("background-color", "red");
+$("#left-well").children().css("color", "blue")
+$(".target:nth-child(3)").addClass("animated bounce");
+$(".target:even").addClass("animated shake");
+
+$("body").addClass("animated hinge");

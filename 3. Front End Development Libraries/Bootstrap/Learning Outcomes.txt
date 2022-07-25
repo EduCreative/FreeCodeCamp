@@ -1,0 +1,29 @@
+Front End Development Librarires
+
+Bootstrap
+
+learning Font Awesome, Bootstrap, and responsive design
+how to build responsive websites with Bootstrap, and use its included classes to style buttons, images, forms, navigation, and other common elements.
+
+
+
+<button class= "btn btn-block btn-primary btn-info btn-danger> button text </button>
+<h3 class="text-primary text-center">
+
+twelve cols
+class="col-xs-4" (extra small for mobile)
+class="col-md-4" (medium for laptops)
+
+Fontawesome
+i class="fa fas-thumbs-up"
+i class="fa fa-paper-plane"
+
+**<div>**
+<div class="container-fluid">
+<div class="row">
+	<div class="col-xs-4">
+	...
+	</div>
+</div>
+
+

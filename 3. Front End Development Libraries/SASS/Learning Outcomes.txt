@@ -1,0 +1,203 @@
+***Front End Development Librarires***
+
+**SASS**
+how to store data in variables, nest CSS, create reusable styles with mixins, add logic and loops to your styles, and more.
+
+*Topics covered:
+- store-data-with-sass-variables
+
+- Nest CSS with Sass
+
+- mixin:
+In Sass, a mixin is a group of CSS declarations that can be reused throughout the style sheet.
+
+- create reusable mixins
+
+- Use @if and @else
+
+- Use @for to Create a Sass Loop
+@for is used in two ways: "start through end" or "start to end". The main difference is that the "start to end" excludes the end number as part of the count, and "start through end" includes the end number as part of the count.
+
+- Use @each to Map Over Items in a List
+
+- Apply a Style Until a Condition is Met with @while
+
+- Split Your Styles into Smaller Chunks with Partials
+Partials in Sass are separate files that hold segments of CSS code. These are imported and used in other Sass files.
+
+- Extend One Set of CSS Styles to Another Element
+Sass has a feature called extend that makes it easy to borrow the CSS rules from one element and build upon them in another.
+
+*Format:
+<style type='text/scss'>
+  $text-color: red;
+
+  .header{
+    text-align: center;
+  }
+  .blog-post, h2 {
+    color: $text-color;
+  }
+</style>
+
+*Examples
+-nesting CSS
+nav {
+  background-color: red;
+
+  ul {
+    list-style: none;
+
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+-mixin
+@mixin box-shadow($x, $y, $blur, $c){ 
+  -webkit-box-shadow: $x $y $blur $c;
+  -moz-box-shadow: $x $y $blur $c;
+  -ms-box-shadow: $x $y $blur $c;
+  box-shadow: $x $y $blur $c;
+}
+div {
+  @include box-shadow(0px, 0px, 4px, #fff);
+}
+
+<style type='text/scss'>
+
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+#awesome {
+    @include border-radius(15px);
+    width:150px;
+    height:150px;
+    background-color: green;
+  }
+</style>
+<div id="awesome"></div>
+
+-Use @if and @else
+<style type='text/scss'>
+
+@mixin border-stroke($val){
+  @if $val == light {
+    border: 1px solid black;
+  } @else if $val == medium {
+    border: 3px solid black;
+  } @else if $val == heavy {
+    border: 6px solid black;
+  } @else {
+    border: none;
+  }
+}
+
+  #box {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    @include border-stroke(light);
+  }
+</style>
+
+<div id="box"></div>
+
+-Use @for to Create a Sass Loop
+<style type='text/scss'>
+@for $j from 1 to 6 {
+  .text-#{$j} {font-size: 15 * $j; }
+}
+
+</style>
+<p class="text-1">Hello</p>
+<p class="text-2">Hello</p>
+<p class="text-3">Hello</p>
+<p class="text-4">Hello</p>
+<p class="text-5">Hello</p>
+
+- Use @each to Map Over Items in a List
+<style type='text/scss'>
+@each $color in blue, black, red{
+  .#{$color}-bg {background-color: $color;}
+}
+
+
+  div {
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div class="blue-bg"></div>
+<div class="black-bg"></div>
+<div class="red-bg"></div>
+
+$key
+<style type='text/scss'>
+$colors: (color1: blue, color2: black, color3: red);
+@each $key, $color in $colors{
+  .#{$color}-bg {background-color: $color;}
+}
+
+  div {
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div class="blue-bg"></div>
+<div class="black-bg"></div>
+<div class="red-bg"></div>
+
+- Apply a Style Until a Condition is Met with @while
+
+<style type='text/scss'>
+$i: 1;
+@while $i < 6 { 
+  .text-#{$i} {font-size: 15* $i;}
+  $i: $i+1;
+}
+</style>
+
+<p class="text-1">Hello</p>
+<p class="text-2">Hello</p>
+<p class="text-3">Hello</p>
+<p class="text-4">Hello</p>
+<p class="text-5">Hello</p>
+
+- Split Your Styles into Smaller Chunks with Partials
+_mixins.scss
+@import 'mixins'
+
+- Extend One Set of CSS Styles to Another Element
+<style type='text/scss'>
+  h3{
+    text-align: center;
+  }
+  .info{
+    width: 200px;
+    border: 1px solid black;
+    margin: 0 auto;
+  }
+  .info-important{
+    @extend .info;
+    background-color: magenta;
+  }
+
+
+
+</style>
+<h3>Posts</h3>
+<div class="info-important">
+  <p>This is an important post. It should extend the class ".info" and have its own CSS styles.</p>
+</div>
+
+<div class="info">
+  <p>This is a simple post. It has basic styling and can be extended for other uses.</p>
+</div>
