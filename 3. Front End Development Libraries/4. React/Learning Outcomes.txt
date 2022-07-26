@@ -1,0 +1,626 @@
+***Front End Development Librarires***
+
+**React**
+React is an Open Source view library created and maintained by Facebook. It's a great tool to render the User Interface (UI) of modern web applications.
+
+React uses a syntax extension of JavaScript called JSX that allows you to write HTML directly within JavaScript. 
+
+However, because JSX is not valid JavaScript, JSX code must be compiled into JavaScript. The transpiler Babel is a popular tool for this process.
+
+It's worth noting that under the hood the challenges are calling ReactDOM.render(JSX, document.getElementById('root')). This function call is what places your JSX into React's own lightweight representation of the DOM. React then uses snapshots of its own DOM to optimize updating only specific parts of the actual DOM.
+
+*Format:
+const JSX = <h1>Hello JSX!</h1>;
+
+
+
+*Topics covered:
+- Complex JSX element
+One important thing to know about nested JSX is that it must return a single element.
+
+This one parent element would wrap all of the other levels of nested elements.
+
+For instance, several JSX elements written as siblings with no parent wrapper element will not transpile.
+
+- add comments
+{/* comment */}
+
+-Render HTML Elements to the DOM
+ReactDOM offers a simple method to render React elements to the DOM which looks like this: ReactDOM.render(componentToRender, targetNode)
+
+- Render HTML elements to the DOM
+With React, we can render this JSX directly to the HTML DOM using React's rendering API known as ReactDOM.
+
+ReactDOM.render(componentToRender, targetNode)
+
+As you would expect, ReactDOM.render() must be called after the JSX element declarations, just like how you must declare variables before using them.
+
+- className in place of class
+
+- Self-Closing JSX Tags
+
+- Stateless Functional Component
+There are two ways to create a React component. The first way is to use a JavaScript function. Defining a component in this way creates a stateless functional component.
+
+think of a stateless component as one that can receive data and render it, but does not manage or track changes to that data.
+
+To create a component with a function, you simply write a JavaScript function that returns either JSX or null. One important thing to note is that React requires your function name to begin with a capital letter.
+
+-Create a React Component
+The other way to define a React component is with the ES6 class syntax. 
+
+-Create a Component with Composition
+we can compose multiple React components together. Imagine you are building an app and have created three components: a Navbar, Dashboard, and Footer.
+
+To compose these components together, you could create an App parent component which renders each of these three components as children. 
+
+return (
+ <App>
+  <Navbar />
+  <Dashboard />
+  <Footer />
+ </App>
+)
+
+- Use React to Render Nested Components
+
+- Compose React Components
+
+- Render a Class Component to the DOM
+
+class TypesOfFood extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>Types of Food:</h1>
+        {/* Change code below this line */}
+        <Fruits />
+        <Vegetables />
+        {/* Change code above this line */}
+      </div>
+    );
+  }
+};
+
+// Change code below this line
+
+ReactDOM.render(<TypesOfFood />, document.getElementById("challenge-node"))
+
+
+- Write a React Component from Scratch
+
+- Pass Props to a Stateless Functional Component
+
+- Pass an Array as Props
+
+- Use Default Props
+React also has an option to set default props. You can assign default props to a component as a property on the component itself and React assigns the default prop if necessary.
+
+MyComponent.defaultProps = { location: 'San Francisco' }
+
+- Override Default Props
+The ability to set default props is a useful feature in React. The way to override the default props is to explicitly set the prop values for a component.
+
+-Use PropTypes to Define the Props You Expect
+
+React provides useful type-checking features to verify that components receive props of the correct type.
+You can set propTypes on your component to require the data to be of type array. This will throw a useful warning when the data is of any other type.
+
+MyComponent.propTypes = { handleClick: PropTypes.func.isRequired }
+In the example above, the PropTypes.func part checks that handleClick is a function. Adding isRequired tells React that handleClick is a required property for that component.
+
+Note: As of React v15.5.0, PropTypes is imported independently from React, like this: import PropTypes from 'prop-types';
+
+- Access Props Using this.props
+The ES6 class component uses a slightly different convention to access props.
+
+Anytime you refer to a class component within itself, you use the this keyword.
+
+To access props within a class component, you preface the code that you use to access it with this. For example, if an ES6 class component has a prop called data, you write {this.props.data} in JSX.
+
+- Review Using Props with Stateless Functional Components
+A stateless functional component is any function you write which accepts props and returns JSX. 
+A stateless component, on the other hand, is a class that extends React.Component, but does not use internal state (covered in the next challenge). 
+Finally, a stateful component is a class component that does maintain its own internal state. You may see stateful components referred to simply as components or React components.
+
+-Create a Stateful Component
+One of the most important topics in React is state. State consists of any data your application needs to know about, that can change over time. You want your apps to respond to state changes and present an updated UI when necessary.
+
+You create state in a React component by declaring a state property on the component class in its constructor. This initializes the component with state when it is created. The state property must be set to a JavaScript object. 
+
+Note that you must create a class component by extending React.Component in order to create state like this.
+
+- Render State in the User Interface
+Once you define a component's initial state, you can display any part of it in the UI that is rendered. If a component is stateful, it will always have access to the data in state in its render() method. You can access the data with this.state.
+
+If you want to access a state value within the return of the render method, you have to enclose the value in curly braces.
+
+state is one of the most powerful features of components in React. It allows you to track important data in your app and render a UI in response to changes in this data. If your data changes, your UI will change. React uses what is called a virtual DOM, to keep track of changes behind the scenes.
+
+
+- Render State in the User Interface Another Way
+There is another way to access state in a component. In the render() method, before the return statement, you can write JavaScript directly. For example, you could declare functions, access data from state or props, perform computations on this data, and so on. Then, you can assign any data to variables, which you have access to in the return statement.
+
+- Set State with this.setState
+There is also a way to change the component's state. React provides a method for updating component state called setState. You call the setState method within your component class like so: this.setState(), passing in an object with key-value pairs. The keys are your state properties and the values are the updated state data.
+
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*Examples
+- Complex JSX element
+const JSX = 
+  <div>
+    <h1>JSX Practice header 1</h1>
+    <p>This ia parargraph</p>
+    <ul>
+      <li>List item 1</li>
+      <li>List item 2</li>
+      <li>List item 3</li>
+    </ul>
+  </div>;
+
+- Render HTML elements to the DOM
+const JSX = (
+  <div>
+    <h1>Hello World</h1>
+    <p>Lets render this to the DOM</p>
+  </div>
+);
+// Change code below this line
+
+ReactDOM.render(JSX, document.getElementById("challenge-node"));
+
+-className in place of class
+const JSX = (
+  <div className="myDiv">
+    <h1>Add a class to this div</h1>
+  </div>
+);
+
+- Self-Closing JSX Tags
+const JSX = (
+  <div>
+    <h2>Welcome to React!</h2> <br />
+    <p>Be sure to close all tags!</p>
+    <hr />
+  </div>
+);
+
+-Stateless Functional Component
+
+const MyComponent = function() {
+  // Change code below this line
+  return (
+    <div>
+    <b>This is div text</b>
+    </div>
+  );
+  // Change code above this line
+}
+
+-Create a React Component
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    // Change code below this line
+    return (
+      <div>
+      <h1>Hello React!</h1>
+      </div>
+    )
+    // Change code above this line
+  }
+};
+
+-Create a component with composition
+const ChildComponent = () => {
+  return (
+    <div>
+      <p>I am the child</p>
+    </div>
+  );
+};
+
+class ParentComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>I am the parent</h1>
+        { /* Change code below this line */ }
+        <ChildComponent />
+
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+- Use React to Render Nested Components
+const TypesOfFruit = () => {
+  return (
+    <div>
+      <h2>Fruits:</h2>
+      <ul>
+        <li>Apples</li>
+        <li>Blueberries</li>
+        <li>Strawberries</li>
+        <li>Bananas</li>
+      </ul>
+    </div>
+  );
+};
+
+const Fruits = () => {
+  return (
+    <div>
+      { /* Change code below this line */ }
+      <TypesOfFruit />
+      { /* Change code above this line */ }
+    </div>
+  );
+};
+
+class TypesOfFood extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Types of Food:</h1>
+        { /* Change code below this line */ }
+        <Fruits />
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+- compose React Components
+class Fruits extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h2>Fruits:</h2>
+        { /* Change code below this line */ }
+        <NonCitrus />
+        <Citrus />
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+class TypesOfFood extends React.Component {
+  constructor(props) {
+     super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>Types of Food:</h1>
+        { /* Change code below this line */ }
+        <Fruits />
+        { /* Change code above this line */ }
+        <Vegetables />
+      </div>
+    );
+  }
+};
+
+-Render a Class Component to the DOM
+
+
+
+
+
+
+
+
+- Write a React Component from Scratch
+
+class MyComponent extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>My First React Component! </h1>
+      </div>
+    );
+  }
+};
+
+ReactDOM.render(<MyComponent />, document.getElementById("challenge-node"))
+
+-Pass Props to a Stateless Functional Component
+
+const CurrentDate = (props) => {
+  return (
+    <div>
+      { /* Change code below this line */ }
+      <p>The current date is: {props.date}</p>
+      
+      { /* Change code above this line */ }
+    </div>
+  );
+};
+
+class Calendar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>What date is it?</h3>
+        { /* Change code below this line */ }
+        <CurrentDate date={Date()} />
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+-Pass an Array as Props
+const List = (props) => {
+  { /* Change code below this line */ }
+  return <p>{props.todo.join(', ')}</p>;
+  { /* Change code above this line */ }
+};
+
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>To Do Lists</h1>
+        <h2>Today</h2>
+        { /* Change code below this line */ }
+        <List todo={["Family Time", "Read"]} />
+        <h2>Tomorrow</h2>
+        <List todo={["coding", "translation", "Make Blog"]} />
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+- Use Default Props
+
+const ShoppingCart = (props) => {
+  return (
+    <div>
+      <h1>Shopping Cart Component</h1>
+    </div>
+  )
+};
+// Change code below this line
+
+ShoppingCart.defaultProps = {items: 0};
+
+- Override Default Props
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+}
+
+Items.defaultProps = {
+  quantity: 0
+}
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    { /* Change code below this line */ }
+    return <Items quantity={10} />
+    { /* Change code above this line */ }
+  }
+};
+
+-Use PropTypes to Define the Props You Expect
+
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+};
+
+// Change code below this line
+Items.propTypes = {
+   quantity: PropTypes.number.isRequired
+};
+// Change code above this line
+
+Items.defaultProps = {
+  quantity: 0
+};
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <Items />
+  }
+};
+
+
+- Access Props Using this.props
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+            { /* Change code below this line */ }
+            <Welcome name="Khan"/>
+            { /* Change code above this line */ }
+        </div>
+    );
+  }
+};
+
+class Welcome extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+          { /* Change code below this line */ }
+          <p>Hello, <strong>{this.props.name}</strong>!</p>
+          { /* Change code above this line */ }
+        </div>
+    );
+  }
+};
+
+
+- Review Using Props with Stateless Functional Components
+class CampSite extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <Camper/>
+      </div>
+    );
+  }
+};
+// Change code below this line
+
+const Camper = (props) =>{
+    return <p>{props.name}</p>;
+};
+
+Camper.propTypes = {
+  name: PropTypes.string.isRequired
+  };
+Camper.defaultProps = {
+  name: "CamperBot"
+  };
+
+
+- Create a Stateful Component
+class StatefulComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    // Only change code below this line
+    this.state = {
+      firstName: "Masroor"
+    }
+    // Only change code above this line
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.firstName}</h1>
+      </div>
+    );
+  }
+};
+
+-Render State in the User Interface
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'freeCodeCamp'
+    }
+  }
+  render() {
+    return (
+      <div>
+        { /* Change code below this line */ }
+        <h1>{this.state.name}</h1>
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+- Render State in the User Interface Another Way
+
+
+
+
+
+
+
+
+
+- Set State with this.setState
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'Initial State'
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    // Change code below this line
+    this.setState({
+      name: "React Rocks!"
+    });
+    // Change code above this line
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>Click Me</button>
+        <h1>{this.state.name}</h1>
+      </div>
+    );
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+

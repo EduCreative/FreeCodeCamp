@@ -1,0 +1,9 @@
+const MyComponent = function() {
+  // Change code below this line
+  return (
+    <div>
+    <b>This is div text</b>
+    </div>
+  );
+  // Change code above this line
+}
