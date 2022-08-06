@@ -4,18 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./styles.css">
     <title>RANDOM QUOTE MACHINE</title>
 </head>
 <body>
-    <div class= "quotebox" id="quote-box">
-        <h1 id="text">Quote Area</h1>
-        <p id="author">This is my Quote</p>
-        <div>
-            <a id="tweet-quote" href="#">Tweet</a>
-            <a id="tumblr-quote" href="#">Tumblr</a>
-            <a id="new-quote" href="#">Next Quote</a>
+    <div class= "wrapper" id="wrapper">
+        <div class= "quotebox" id="quote-box">
+            <i class="fa fa-quote-left"></i>
+            <p id="text"></p>
+            </p>
+            <p id="author"></p>
+            <hr>
+            <div id="links">
+                <a id="tweet-quote" href="#"><i class="fa fa-twitter"> </i> Tweet</a>
+                <a id="tumblr-quote" href="#"><i class="fa fa-tumblr"> </i> Tumblr</a>
+                <button id="new-quote" href="#" onclick="setColors()"> New Quote </button>
+                <!--
+                <a id="new-quote" href="#"> New Quote </a>
+                -->
+            </div>
         </div>
     </div>
 </body>
+<script src="./index.js"></script>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </html>
